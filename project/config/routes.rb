@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :posts
+  root :to => "posts#index", as: 'index_post_path'
   get '/posts/:id' => "posts#show"
   post '/posts' => "posts#create"
   put '/posts/:id' => "posts#update"

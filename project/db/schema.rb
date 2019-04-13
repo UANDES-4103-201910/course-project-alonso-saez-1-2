@@ -75,6 +75,11 @@ ActiveRecord::Schema.define(version: 2019_04_13_004347) do
     t.index ["wall_id"], name: "index_posts_on_wall_id"
   end
 
+  create_table "posts_users", id: false, force: :cascade do |t|
+  t.integer "user_id", null: false
+  t.integer "post_id", null: false
+end
+
   create_table "super_admins", force: :cascade do |t|
     t.string "profile_image"
     t.string "nickname"

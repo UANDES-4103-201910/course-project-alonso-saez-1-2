@@ -2,8 +2,7 @@ For part 3, you need to:
 1. run: rails db:migrate
 2. run: rails db:seed (because we create some objects for you to try our complain page)
 3. run: rails s and then enter to localhost:3000/start_page/home_page (this is our static start page)
-4.We havent created any posts so you have to create one to see how the post index works but we created the Super_Admin, Admin and a Wall so you only have to run: rails db:seed to start creating posts
-5.For a new post you need to use Super_Admin_id = 1, Admin_id = 1 and Wall_id = 1
- 
-In case you wonder why creating a new posts doesnt ask for you to register as a user, its because for that we have to create a scaffold for users too, and the professor told us to choose one model for the scaffolding features (and we choose Posts),so in this assignment we decided that anyone can create a post without identification but for the next deliverance we will be avaible to do that. 
+4.We havent created any posts so you have to create one to see how the post index works but we created the User, Super_Admin, Admin and a Wall so you only have to run: rails db:seed to start creating posts
+5.For a new post you need to use User: 1, Super_Admin_id = 1, Admin_id = 1 and Wall_id = 1
+
 Enjoy our page!!

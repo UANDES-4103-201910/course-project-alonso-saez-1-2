@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_13_004347) do
+ActiveRecord::Schema.define(version: 2019_05_06_035819) do
 
   create_table "admins", force: :cascade do |t|
     t.string "profile_image"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 2019_04_13_004347) do
     t.string "city"
     t.string "status"
     t.string "gps_location"
-    t.integer "super_admin_id"
+    t.integer "superadmin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["super_admin_id"], name: "index_admins_on_super_admin_id"
+    t.index ["superadmin_id"], name: "index_admins_on_superadmin_id"
   end
 
   create_table "blacklists", force: :cascade do |t|
@@ -64,21 +64,16 @@ ActiveRecord::Schema.define(version: 2019_04_13_004347) do
     t.string "text"
     t.string "link"
     t.integer "wall_id"
-    t.integer "super_admin_id"
+    t.integer "superadmin_id"
     t.integer "admin_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
     t.index ["admin_id"], name: "index_posts_on_admin_id"
-    t.index ["super_admin_id"], name: "index_posts_on_super_admin_id"
+    t.index ["superadmin_id"], name: "index_posts_on_superadmin_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
     t.index ["wall_id"], name: "index_posts_on_wall_id"
   end
-
-  create_table "posts_users", id: false, force: :cascade do |t|
-  t.integer "user_id", null: false
-  t.integer "post_id", null: false
-end
 
   create_table "super_admins", force: :cascade do |t|
     t.string "profile_image"
@@ -104,12 +99,12 @@ end
     t.string "city"
     t.string "status"
     t.string "gps_location"
-    t.integer "super_admin_id"
+    t.integer "superadmin_id"
     t.integer "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_users_on_admin_id"
-    t.index ["super_admin_id"], name: "index_users_on_super_admin_id"
+    t.index ["superadmin_id"], name: "index_users_on_superadmin_id"
   end
 
   create_table "walls", force: :cascade do |t|

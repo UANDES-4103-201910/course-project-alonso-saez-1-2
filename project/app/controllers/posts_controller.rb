@@ -70,6 +70,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:user_id, :title, :creation_date, :solve_status, :file, :image, :text, :link, :wall_id, :super_admin_id, :admin_id)
+      params.require(:post).permit(:title, :creation_date, :solve_status, :file, :image, :text, :link, :wall_id, :superadmin_id, :admin_id, :user_id)
     end
 end

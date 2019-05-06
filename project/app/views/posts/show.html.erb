@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
-
-<p>
   <strong>Title:</strong>
   <%= @post.title %>
 </p>
@@ -46,13 +41,18 @@
 </p>
 
 <p>
-  <strong>Super admin:</strong>
-  <%= @post.super_admin %>
+  <strong>Superadmin:</strong>
+  <%= @post.superadmin %>
 </p>
 
 <p>
   <strong>Admin:</strong>
   <%= @post.admin %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

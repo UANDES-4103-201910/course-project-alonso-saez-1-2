@@ -10,7 +10,7 @@ one:
   city: MyString
   status: MyString
   gps_location: MyString
-  super_admin: one
+  superadmin: one
   admin: one
 
 two:
@@ -23,5 +23,5 @@ two:
   city: MyString
   status: MyString
   gps_location: MyString
-  super_admin: two
+  superadmin: two
   admin: two

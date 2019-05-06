@@ -1,5 +1,5 @@
 class Admin < ApplicationRecord
-  belongs_to :super_admin
+  belongs_to :superadmin
   has_many :users
   has_many :posts
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -7,17 +7,17 @@ class Admin < ApplicationRecord
   validates :password, length: {maximum: 12, :messages => 'Your password has more than 12 characters'}
   validates :nickname, :presence => true
   before_save :only_one_email
-  
+
   def only_one_email
-	count = 0
-	for a in Admin.all do
-		if u[:email] == self.email
-			count = 1
-		end
-	end
-	if count == 1
-		puts("This email is already taken")
-		throw :abort
-	end
+    count = 0
+    for a in Admin.all do
+      if u[:email] == self.email
+        count = 1
+      end
+    end
+    if count == 1
+      puts("This email is already taken")
+      throw :abort
+    end
   end
 end

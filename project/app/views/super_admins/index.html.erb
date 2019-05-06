@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Super Admins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Profile image</th>
+      <th>Nickname</th>
+      <th>Biography</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Status</th>
+      <th>Gps location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @super_admins.each do |super_admin| %>
+      <tr>
+        <td><%= super_admin.profile_image %></td>
+        <td><%= super_admin.nickname %></td>
+        <td><%= super_admin.biography %></td>
+        <td><%= super_admin.email %></td>
+        <td><%= super_admin.password %></td>
+        <td><%= super_admin.country %></td>
+        <td><%= super_admin.city %></td>
+        <td><%= super_admin.status %></td>
+        <td><%= super_admin.gps_location %></td>
+        <td><%= link_to 'Show', super_admin %></td>
+        <td><%= link_to 'Edit', edit_super_admin_path(super_admin) %></td>
+        <td><%= link_to 'Destroy', super_admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Super Admin', new_super_admin_path %>

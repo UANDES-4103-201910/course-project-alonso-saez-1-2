@@ -10,7 +10,7 @@ one:
   city: MyString
   status: MyString
   gps_location: MyString
-  super_admin: one
+  superadmin: one
 
 two:
   profile_image: MyString
@@ -22,4 +22,4 @@ two:
   city: MyString
   status: MyString
   gps_location: MyString
-  super_admin: two
+  superadmin: two

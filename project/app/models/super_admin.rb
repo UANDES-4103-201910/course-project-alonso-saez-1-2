@@ -9,15 +9,15 @@ class SuperAdmin < ApplicationRecord
   before_save :only_one_email
   
   def only_one_email
-	count = 0
-	for u in User.all do
-		if u[:email] == self.email
-			count = 1
-		end
-	end
-	if count == 1
-		puts("This email is already taken")
-		throw :abort
-	end
+    count = 0
+	  for u in User.all do
+      if u[:email] == self.email
+        count = 1
+		  end
+	  end
+	  if count == 1
+      puts("This email is already taken")
+		  throw :abort
+	  end
   end
 end

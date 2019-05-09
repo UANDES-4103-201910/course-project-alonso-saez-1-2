@@ -10,7 +10,6 @@ class WallsController < ApplicationController
   # GET /walls/1
   # GET /walls/1.json
   def show
-    @wall = Wall.find(params[:id])
   end
 
   # GET /walls/new

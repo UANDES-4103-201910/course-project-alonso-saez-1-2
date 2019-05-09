@@ -23,7 +23,7 @@ class AdminsTest < ApplicationSystemTestCase
     fill_in "Password", with: @admin.password
     fill_in "Profile image", with: @admin.profile_image
     fill_in "Status", with: @admin.status
-    fill_in "Superadmin", with: @admin.superadmin_id
+    fill_in "Super admin", with: @admin.super_admin_id
     click_on "Create Admin"
 
     assert_text "Admin was successfully created"
@@ -43,7 +43,7 @@ class AdminsTest < ApplicationSystemTestCase
     fill_in "Password", with: @admin.password
     fill_in "Profile image", with: @admin.profile_image
     fill_in "Status", with: @admin.status
-    fill_in "Superadmin", with: @admin.superadmin_id
+    fill_in "Super admin", with: @admin.super_admin_id
     click_on "Update Admin"
 
     assert_text "Admin was successfully updated"

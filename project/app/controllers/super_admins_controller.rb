@@ -10,7 +10,6 @@ class SuperAdminsController < ApplicationController
   # GET /super_admins/1
   # GET /super_admins/1.json
   def show
-    @superadmin = SuperAdmin.find(params[:id])
   end
 
   # GET /super_admins/new

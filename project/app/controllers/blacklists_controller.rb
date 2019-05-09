@@ -10,7 +10,6 @@ class BlacklistsController < ApplicationController
   # GET /blacklists/1
   # GET /blacklists/1.json
   def show
-    @blacklist = Blacklist.find(params[:id])
   end
 
   # GET /blacklists/new

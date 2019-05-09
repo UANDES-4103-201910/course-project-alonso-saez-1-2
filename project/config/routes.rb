@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'start_page/home_page'
-  root to: 'start_page#home_page'
+  get 'profile' => 'users#show', as: :profile
+  root to: 'posts#index'
   resources :comments
   resources :posts
   resources :dumpsters

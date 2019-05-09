@@ -1,5 +1,5 @@
 class Admin < ApplicationRecord
-  belongs_to :superadmin
+  belongs_to :super_admin
   has_many :users
   has_many :posts
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i

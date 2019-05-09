@@ -2,26 +2,26 @@
 
 one:
   title: MyString
-  creation_date: 2019-05-05
+  creation_date: 2019-05-09
   solve_status: MyString
   file: MyString
   image: MyString
   text: MyString
   link: MyString
   wall: one
-  superadmin: one
+  super_admin: one
   admin: one
   user: one
 
 two:
   title: MyString
-  creation_date: 2019-05-05
+  creation_date: 2019-05-09
   solve_status: MyString
   file: MyString
   image: MyString
   text: MyString
   link: MyString
   wall: two
-  superadmin: two
+  super_admin: two
   admin: two
   user: two

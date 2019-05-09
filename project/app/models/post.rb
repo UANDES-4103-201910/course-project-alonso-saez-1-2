@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :wall
-  belongs_to :superadmin
+  belongs_to :super_admin
   belongs_to :admin
   belongs_to :user
   has_many :comments

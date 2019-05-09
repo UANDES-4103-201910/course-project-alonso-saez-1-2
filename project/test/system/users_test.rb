@@ -24,7 +24,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "Password", with: @user.password
     fill_in "Profile image", with: @user.profile_image
     fill_in "Status", with: @user.status
-    fill_in "Superadmin", with: @user.superadmin_id
+    fill_in "Super admin", with: @user.super_admin_id
     click_on "Create User"
 
     assert_text "User was successfully created"
@@ -45,7 +45,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "Password", with: @user.password
     fill_in "Profile image", with: @user.profile_image
     fill_in "Status", with: @user.status
-    fill_in "Superadmin", with: @user.superadmin_id
+    fill_in "Super admin", with: @user.super_admin_id
     click_on "Update User"
 
     assert_text "User was successfully updated"

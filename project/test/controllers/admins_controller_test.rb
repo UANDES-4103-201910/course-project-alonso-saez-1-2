@@ -17,7 +17,7 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create admin" do
     assert_difference('Admin.count') do
-      post admins_url, params: { admin: { biography: @admin.biography, city: @admin.city, country: @admin.country, email: @admin.email, gps_location: @admin.gps_location, nickname: @admin.nickname, password: @admin.password, profile_image: @admin.profile_image, status: @admin.status, superadmin_id: @admin.superadmin_id } }
+      post admins_url, params: { admin: { biography: @admin.biography, city: @admin.city, country: @admin.country, email: @admin.email, gps_location: @admin.gps_location, nickname: @admin.nickname, password: @admin.password, profile_image: @admin.profile_image, status: @admin.status, super_admin_id: @admin.super_admin_id } }
     end
 
     assert_redirected_to admin_url(Admin.last)
@@ -34,7 +34,7 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update admin" do
-    patch admin_url(@admin), params: { admin: { biography: @admin.biography, city: @admin.city, country: @admin.country, email: @admin.email, gps_location: @admin.gps_location, nickname: @admin.nickname, password: @admin.password, profile_image: @admin.profile_image, status: @admin.status, superadmin_id: @admin.superadmin_id } }
+    patch admin_url(@admin), params: { admin: { biography: @admin.biography, city: @admin.city, country: @admin.country, email: @admin.email, gps_location: @admin.gps_location, nickname: @admin.nickname, password: @admin.password, profile_image: @admin.profile_image, status: @admin.status, super_admin_id: @admin.super_admin_id } }
     assert_redirected_to admin_url(@admin)
   end
 

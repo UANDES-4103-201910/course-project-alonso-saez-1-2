@@ -17,7 +17,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create user" do
     assert_difference('User.count') do
-      post users_url, params: { user: { admin_id: @user.admin_id, biography: @user.biography, city: @user.city, country: @user.country, email: @user.email, gps_location: @user.gps_location, nickname: @user.nickname, password: @user.password, profile_image: @user.profile_image, status: @user.status, superadmin_id: @user.superadmin_id } }
+      post users_url, params: { user: { admin_id: @user.admin_id, biography: @user.biography, city: @user.city, country: @user.country, email: @user.email, gps_location: @user.gps_location, nickname: @user.nickname, password: @user.password, profile_image: @user.profile_image, status: @user.status, super_admin_id: @user.super_admin_id } }
     end
 
     assert_redirected_to user_url(User.last)
@@ -34,7 +34,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user" do
-    patch user_url(@user), params: { user: { admin_id: @user.admin_id, biography: @user.biography, city: @user.city, country: @user.country, email: @user.email, gps_location: @user.gps_location, nickname: @user.nickname, password: @user.password, profile_image: @user.profile_image, status: @user.status, superadmin_id: @user.superadmin_id } }
+    patch user_url(@user), params: { user: { admin_id: @user.admin_id, biography: @user.biography, city: @user.city, country: @user.country, email: @user.email, gps_location: @user.gps_location, nickname: @user.nickname, password: @user.password, profile_image: @user.profile_image, status: @user.status, super_admin_id: @user.super_admin_id } }
     assert_redirected_to user_url(@user)
   end
 

@@ -9,7 +9,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :text
       t.string :link
       t.references :wall, foreign_key: true
-      t.references :superadmin, foreign_key: true
+      t.references :super_admin, foreign_key: true
       t.references :admin, foreign_key: true
       t.references :user, foreign_key: true
 

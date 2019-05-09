@@ -10,7 +10,6 @@ class AdminsController < ApplicationController
   # GET /admins/1
   # GET /admins/1.json
   def show
-    @admin = Admin.find(params[:id])
   end
 
   # GET /admins/new
@@ -70,6 +69,6 @@ class AdminsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
-      params.require(:admin).permit(:profile_image, :nickname, :biography, :email, :password, :country, :city, :status, :gps_location, :superadmin_id)
+      params.require(:admin).permit(:profile_image, :nickname, :biography, :email, :password, :country, :city, :status, :gps_location, :super_admin_id)
     end
 end

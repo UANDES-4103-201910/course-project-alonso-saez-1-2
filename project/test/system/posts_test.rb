@@ -20,7 +20,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in "Image", with: @post.image
     fill_in "Link", with: @post.link
     fill_in "Solve status", with: @post.solve_status
-    fill_in "Superadmin", with: @post.superadmin_id
+    fill_in "Super admin", with: @post.super_admin_id
     fill_in "Text", with: @post.text
     fill_in "Title", with: @post.title
     fill_in "User", with: @post.user_id
@@ -41,7 +41,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in "Image", with: @post.image
     fill_in "Link", with: @post.link
     fill_in "Solve status", with: @post.solve_status
-    fill_in "Superadmin", with: @post.superadmin_id
+    fill_in "Super admin", with: @post.super_admin_id
     fill_in "Text", with: @post.text
     fill_in "Title", with: @post.title
     fill_in "User", with: @post.user_id

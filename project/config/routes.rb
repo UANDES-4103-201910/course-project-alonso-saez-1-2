@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'profile' => 'users#show', as: :profile
+  get 'profile' => 'users#index', as: :profile
   root to: 'posts#index'
   resources :comments
   resources :posts

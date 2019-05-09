@@ -11,6 +11,7 @@ p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  margin-top: 12px;
 }
 
 pre {
@@ -20,17 +21,8 @@ pre {
 }
 
 a {
-  color: #000;
-  margin-right: 50px;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+  color: #111;
+  margin-right: 30px;
 }
 
 th {
@@ -71,12 +63,13 @@ div {
     font-size: 12px;
     margin: -7px -7px 0;
     background-color: #c00;
-    color: #fff;
+    color: #333;
   }
 
   ul li {
     font-size: 12px;
     list-style: square;
+    margin-top: 12px;
   }
 }
 

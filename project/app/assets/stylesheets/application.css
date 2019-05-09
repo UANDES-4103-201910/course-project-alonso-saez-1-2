@@ -11,25 +11,25 @@
  * It is generally better to create a new file per style scope.
  *
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+ @import "bootstrap-sprockets";
+  @import "bootstrap";
 
-.mb-4{
- background-color: #b22222;
-}
+ .mb-4{
+   background-color: #b22222;
+ }
 
-.nav-item{
- margin-top: 15px;
-}
+ .nav-item{
+   margin-top: 15px;
+ }
 
-.mt-md-0{
- margin-top: 8px;
-}
+ .mt-md-0{
+   margin-top: 8px;
+ }
 
-.navbar-brand{
- color: #fff;
-}
+ .navbar-brand{
+   color: #fff;
+ }
 
-.nav-link{
- color: #fff;
-}
+ .nav-link{
+   color: #fff;
+ }

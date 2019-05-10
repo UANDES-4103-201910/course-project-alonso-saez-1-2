@@ -1,12 +1,30 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
 
 <h1>Posts</h1>
 <%= link_to 'Create a new post', new_post_path %>
+<h2> </h2>
+
 
 <% @posts.each do |post| %>
-<div class="w3-container">
-  <h4><%= post.title %> <small><i>Posted on <%= post.creation_date %> by <%= post.user_id %></i></small></h4>
-  <p><%= post.text %></p>
-  <p><%= link_to 'Read more', post %> <%= link_to 'Edit', edit_post_path(post)%> <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-</div>
+<h2> </h2>
+
+    <article class="clearfix">
+      <div class="post-date">
+        <%= post.creation_date %>
+      </div>
+        <h2><a> <%= post.title %> </a></h2>
+        <p> <%= post.text %> </p>
+        <a <%= link_to 'Read more', post %> <%= link_to 'Edit', edit_post_path(post)%> <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+
+
+		</article>
+
 <% end %>
+
+    <div class="paging clearfix">
+      <a class="btn pull-left" href="#"><i class="icon-arrow-left2 left"></i><span>Older</span><span class="hidden-xs"> Posts</span></a>
+    </div>
+  </div>
+</div>

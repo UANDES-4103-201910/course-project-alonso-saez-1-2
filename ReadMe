@@ -1,8 +1,1 @@
-For part 3, you need to:
-1. run: rails db:migrate
-2. run: rails db:seed (because we create some objects for you to try our complain page)
-3. run: rails s and then enter to localhost:3000/start_page/home_page (this is our static start page)
-4.We havent created any posts so you have to create one to see how the post index works but we created the User, Super_Admin, Admin and a Wall so you only have to run: rails db:seed to start creating posts
-5.For a new post you need to use User: 1, Super_Admin_id = 1, Admin_id = 1 and Wall_id = 1
-
-Enjoy our page!!
+Postman :https://www.getpostman.com/collections/ece35c6a37c96a3acf8d

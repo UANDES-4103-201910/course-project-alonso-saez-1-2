@@ -1,59 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Creation date:</strong>
-  <%= @post.creation_date %>
-</p>
-
-<p>
-  <strong>Solve status:</strong>
-  <%= @post.solve_status %>
-</p>
-
-<p>
-  <strong>File:</strong>
-  <%= @post.file %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @post.link %>
-</p>
-
-<p>
-  <strong>Wall:</strong>
-  <%= @post.wall %>
-</p>
-
-<p>
-  <strong>Super admin:</strong>
-  <%= @post.super_admin %>
-</p>
-
-<p>
-  <strong>Admin:</strong>
-  <%= @post.admin %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
-
+<div class="row">
+  <div class="col-md-2">
+    <div class="user_post_pic">
+      <img src="https://www.elitesingles.com/sites/www.elitesingles.com/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_ta_teaser_sp1.png" class="img-responsive" alt="">
+    </div>
+  </div>
+  <div class="col-md-10">
+    <div class="w3-container">
+      <div class="post-txt">
+        <h1><%= @post.title %><small><i> Posted on <%= @post.created_at %> by <%= @post.user_id %></i></small></h1>
+        <p><%= @post.text %></p>
+        <p><%= @post.link %></p>
+      </div>
+      <div class="post_pic">
+        <img src="https://gcdn.emol.cl/fotografia/files/2014/12/22.jpg" class="img-responsive" alt="">
+      </div>
+      <div class="row post-btns">
+        <button type="button" name="Upvote">Upvote</button>
+        <button type="button" name="Downvote">Downvote</button>
+        <button type="button" name="Share">Share</button>
+      </div>
+    </div>
+  </div>
+</div>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

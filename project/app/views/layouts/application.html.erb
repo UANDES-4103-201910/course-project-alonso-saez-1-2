@@ -10,20 +10,20 @@
 <body>
 
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
+  <div class="row container-fluid">
+    <div class="navbar-header col-md-2">
       <a class="navbar-brand" <%= link_to 'Tell me more...', root_path, class: "nav-link #{yield(:post_active)}" %></a>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a <%= link_to 'Post', root_path, class: "nav-link #{yield(:post_active)}" %> </a></li>
-      <li><a  <%= link_to 'Profile', profile_path, class: "nav-link #{yield(:profile_active)}" %> </a></li>
-    </ul>
-    <form class="form-inline mt-2 mt-md-0" >
+    <form class="form-inline mt-2 col-md-4" >
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Search" name="search">
       </div>
       <button type="submit">Submit</button>
     </form>
+    <ul class="nav navbar-nav col-md-2">
+      <li><a <%= link_to 'Post', root_path, class: "nav-link #{yield(:post_active)}" %> </a></li>
+      <li><a  <%= link_to 'Profile', profile_path, class: "nav-link #{yield(:profile_active)}" %> </a></li>
+    </ul>
   </div>
 </nav>
 

@@ -1,30 +1,50 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
     <div class="row profile">
-		<div class="col-md-3">
-			<div class="profile-sidebar">
-				<!-- SIDEBAR USERPIC -->
-				<div class="profile-userpic">
-					<img src="https://www.elitesingles.com/sites/www.elitesingles.com/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_ta_teaser_sp1.png" class="img-responsive" alt="">
-				</div>
-				<!-- END SIDEBAR USERPIC -->
-				<!-- SIDEBAR USER TITLE -->
-				<div class="profile-usertitle">
-					<div class="profile-usertitle-name">
-						<%= @user.nickname%>
-					</div>
-					<div class="profile-usertitle-job">
-						<%= @user.biography%>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-9">
+  		<div class="col-md-3">
+  			<div class="profile-sidebar">
+  				<div class="profile-userpic">
+  					<img src="https://www.elitesingles.com/sites/www.elitesingles.com/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_ta_teaser_sp1.png" class="img-responsive" alt="">
+  				</div>
+  			</div>
+  		</div>
+  		<div class="col-md-9">
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+            <%= @user.nickname %>
+          </div>
+          <div class="profile-usertitle-job">
+            <%= @user.biography %>
+          </div>
+          <div class="profile-usertitle-email">
+            <%= @user.email %>
+          </div>
+          <div class="profile-usertitle-country">
+            <%= @user.country %>
+          </div>
+          <div class="profile-usertitle-city">
+            <%= @user.city %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row profileS">
+      <div class="col-md-3">
+        <%= link_to 'Edit', edit_user_path(@user) %> |
+        <%= link_to 'Back', users_path %>
+      </div>
+      <div class="col-md-9">
             <div class="profile-content">
-			   Some user related content goes here...
+              <div class="w3-container">
+                <h4>I dont like this webite<small><i>Posted on 9/05/2019 at 23:56 by <%= @user.nickname %></i></small></h4>
+                <p>This website is toxic because it foments the people rage and it is bad for our society
+                and cause a lot of daily conflicts in many areas: sports, politics, economy, etc.</p>
+                <p><%= link_to 'Read more', posts_path %></p>
+                <div class="row">
+                  <button type="button" name="Upvote">Upvote</button>
+                  <button type="button" name="Downvote">Downvote</button>
+                  <button type="button" name="Share">Share</button>
+                </div>
+              </div>
             </div>
-		</div>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      </div>
+    </div>

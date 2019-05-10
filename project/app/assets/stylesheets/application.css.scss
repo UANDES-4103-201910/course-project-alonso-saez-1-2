@@ -1,0 +1,71 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+ .navbar-inverse{
+   background-color: #b22222;
+   height: 30px;
+ }
+ .form-inline.mt-2.mt-md-0 {
+   margin-top: 8px;
+ }
+
+ .navbar-brand{
+   color: #fff;
+ }
+
+ .container-fluid {
+   font-weight:700;
+   weight: 700px;
+ }
+
+ .profile-usertitle-name {
+   color: #5a7391;
+   font-size: 18px;
+   font-weight: 600;
+   margin-bottom: 7px;
+ }
+
+ .profile-usertitle-job {
+   text-transform: uppercase;
+   color: #5b9bd1;
+   font-size: 12px;
+   font-weight: 600;
+   margin-bottom: 15px;
+ }
+
+ .profile-usertitle-email {
+   text-transform: uppercase;
+   color: #5b9bd1;
+   font-size: 12px;
+   font-weight: 600;
+   margin-bottom: 15px;
+ }
+
+ .profile-usertitle-country {
+   text-transform: uppercase;
+   color: #5b9bd1;
+   font-size: 12px;
+   font-weight: 600;
+   margin-bottom: 15px;
+ }
+
+ .profile-usertitle-city {
+   text-transform: uppercase;
+   color: #5b9bd1;
+   font-size: 12px;
+   font-weight: 600;
+   margin-bottom: 15px;
+ }

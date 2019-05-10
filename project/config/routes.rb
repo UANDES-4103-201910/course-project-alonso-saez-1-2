@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'profile' => 'users#index', as: :profile
-  root to: 'posts#index'
+  root to: 'users#new'
   resources :comments
   resources :posts
   resources :dumpsters

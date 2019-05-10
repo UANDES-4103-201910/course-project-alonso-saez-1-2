@@ -10,20 +10,10 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :profile_image %>
-    <%= form.text_field :profile_image %>
-  </div>
-
+<div class="field-container col-md-offset-4">
   <div class="field">
     <%= form.label :nickname %>
     <%= form.text_field :nickname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :biography %>
-    <%= form.text_field :biography %>
   </div>
 
   <div class="field">
@@ -47,16 +37,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gps_location %>
-    <%= form.text_field :gps_location %>
-  </div>
-
-  <div class="field">
     <%= form.label :super_admin_id %>
     <%= form.text_field :super_admin_id %>
   </div>
@@ -66,7 +46,8 @@
     <%= form.text_field :admin_id %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div id="newUser" class="actions">
+    <input class="btn btn-lg btn-block btn-success" type="submit" value="Create User">
   </div>
+</div>
 <% end %>

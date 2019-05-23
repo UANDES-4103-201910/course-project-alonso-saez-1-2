@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'registrations/new'
+  get 'registrations/create'
+  get 'registrations/destroy'
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
   get 'profile' => 'users#index', as: :profile
   root to: 'users#new'
   resources :comments

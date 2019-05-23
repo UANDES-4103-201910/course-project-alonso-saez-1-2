@@ -32,12 +32,12 @@
         <%= link_to 'Edit', edit_user_path(@user) %>
       </div>
       <div class="col-md-9">
+        <% @user.posts.each do |post| %>
             <div class="profile-content">
               <div class="w3-container">
-                <h4>I dont like this webite<small><i>Posted on 9/05/2019 at 23:56 by <%= @user.nickname %></i></small></h4>
-                <p>This website is toxic because it foments the people rage and it is bad for our society
-                and cause a lot of daily conflicts in many areas: sports, politics, economy, etc.</p>
-                <p><%= link_to 'Read more', posts_path %></p>
+                <h4><%= post.title %><small><i> Posted <%= post.created_at %> by <%= @user.nickname %></i></small></h4>
+                <p><%= post.text %></p>
+                <p><%= link_to 'Read more', post_path(post) %></p>
                 <div class="row btns-post">
                   <button type="button" name="Upvote">Upvote</button>
                   <button type="button" name="Downvote">Downvote</button>
@@ -46,5 +46,7 @@
                 </div>
               </div>
             </div>
+          <% end %>
       </div>
     </div>
+  </div>

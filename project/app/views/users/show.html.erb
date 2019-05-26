@@ -3,7 +3,7 @@
   		<div class="col-md-3">
   			<div class="profile-sidebar">
   				<div class="profile-userpic">
-  					<img src="https://www.elitesingles.com/sites/www.elitesingles.com/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_ta_teaser_sp1.png" class="img-responsive" alt="">
+            <%= image_tag(@user.image, style:'width:100%') if @user.image.attached?%>
   				</div>
   			</div>
   		</div>

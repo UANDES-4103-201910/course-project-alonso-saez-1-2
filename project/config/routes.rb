@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :admins
   resources :super_admins
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   #for UsersController
   post '/users/new' => "users#create"
   put '/users/:id' => "users#update"

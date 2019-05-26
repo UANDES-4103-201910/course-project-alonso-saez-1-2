@@ -2,6 +2,7 @@ class User < ApplicationRecord
   belongs_to :super_admin
   belongs_to :admin
   has_many :posts
+  has_one_attached :image
   #belongs_to :posts
   #belongs_to :blacklists
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -9,6 +10,17 @@ class User < ApplicationRecord
   validates :password, length: {maximum: 12, :messages => 'Your password has more than 12 characters'}
   validates :nickname, :presence => true
   before_save :only_one_email
+
+  devise :omniauthable, :omniauth_providers => [:google_oauth2]
+  def self.from_omniauth(auth)
+    # Either create a User record or update it based on the provider (Google) and the UID
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.token = auth.credentials.token
+      user.expires = auth.credentials.expires
+      user.expires_at = auth.credentials.expires_at
+      user.refresh_token = auth.credentials.refresh_token
+    end
+  end
 
   def only_one_email
     count = 0
@@ -22,4 +34,5 @@ class User < ApplicationRecord
 		  throw :abort
 	  end
   end
+
 end

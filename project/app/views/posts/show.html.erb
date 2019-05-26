@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-2">
     <div class="user_post_pic">
-      <img src="https://www.elitesingles.com/sites/www.elitesingles.com/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_ta_teaser_sp1.png" class="img-responsive" alt="">
+        <!-- image_tag(@post.image, style:'width:100%') if @post.image.attached?%>-->
     </div>
   </div>
   <div class="col-md-10">
@@ -12,7 +12,7 @@
         <p><%= @post.link %></p>
       </div>
       <div class="post_pic">
-        <img src="https://gcdn.emol.cl/fotografia/files/2014/12/22.jpg" class="img-responsive" alt="">
+        <%= image_tag(@post.image, style:'width:100%') if @post.image.attached?%>
       </div>
       <div class="row post-btns">
         <button type="button" name="Upvote">Upvote</button>

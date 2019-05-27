@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
+  #before_action :is_user_logged_in?
   # GET /users
   # GET /users.json
   def index

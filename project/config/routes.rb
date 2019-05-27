@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'registrations/new'
-  get 'registrations/create'
-  get 'registrations/destroy'
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
+  #get 'registrations/new'
+  #get 'registrations/create'
+  #get 'registrations/destroy'
+  #get 'sessions/new'
+  #get 'sessions/create'
+  #get 'sessions/destroy'
   get 'profile' => 'users#index', as: :profile
   root to: 'users#new'
   resources :comments
@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   resources :users
   resources :admins
   resources :super_admins
+
+  post '/login',   to: 'sessions#create', as: :log_in
+  delete '/log_out' => 'sessions#destroy', as: :log_out
+
+  get '/sign_in' => 'registrations#new', as: :registrations
+  post '/sign_in' => 'registrations#create', as: :sign_in
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

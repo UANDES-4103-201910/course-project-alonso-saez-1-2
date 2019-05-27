@@ -11,7 +11,7 @@ class Admin < ApplicationRecord
   def only_one_email
     count = 0
     for a in Admin.all do
-      if u[:email] == self.email
+      if a[:email] == self.email
         count = 1
       end
     end

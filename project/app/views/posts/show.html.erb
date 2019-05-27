@@ -12,7 +12,7 @@
         <p><%= @post.link %></p>
       </div>
       <div class="post_pic">
-        <%= image_tag(@post.image, style:'width:100%') if @post.image.attached?%>
+        <%= image_tag(@post.photo, style:'width:100%') if @post.photo.attached?%>
       </div>
       <div class="row post-btns">
         <button type="button" name="Upvote">Upvote</button>

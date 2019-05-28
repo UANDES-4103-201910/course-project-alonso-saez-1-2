@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-2">
     <div class="user_post_pic">
-        <%=image_tag(@post.user.image, style:'width:100%') if @post.user.image.attached?%>
+        <!-- image_tag(@post.image, style:'width:100%') if @post.image.attached?%>-->
     </div>
   </div>
   <div class="col-md-10">
@@ -12,7 +12,7 @@
         <p><%= @post.link %></p>
       </div>
       <div class="post_pic">
-        <%= image_tag(@post.photo, style:'width:100%') if @post.photo.attached?%>
+        <%= image_tag(@post.image, style:'width:100%') if @post.image.attached?%>
       </div>
       <div class="row post-btns">
         <button type="button" name="Upvote">Upvote</button>

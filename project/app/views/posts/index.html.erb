@@ -10,13 +10,13 @@
     <div class="span8">
       <div class="row">
         <div class="span8">
-          <h4><strong><a <%= link_to post.title, post %></a></strong><small><i> Posted on <%= post.created_at %> by <%= post.user_id %></i></small></h4>
+          <h4><strong><a <%= link_to post.title, post %></a></strong><small><i> Posted on <%= post.created_at %> by <%= post.user.nickname %></i></small></h4>
         </div>
       </div>
       <div class="row">
         <div class="col-md-2">
           <a href="#" class="thumbnail">
-              <img src="http://placehold.it/260x180" alt="">
+              <%= image_tag(post.user.image, style:'width:100%') if post.user.image.attached?%>
           </a>
         </div>
         <div class="col-md-10">

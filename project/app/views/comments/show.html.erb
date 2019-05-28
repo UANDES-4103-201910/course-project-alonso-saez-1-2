@@ -16,10 +16,9 @@
       <div class="post-txt">
         <h2><%= @comment.user.nickname %><small><i>  <%= @comment.created_at %> </i></small></h2>
         <p><%= @comment.text %></p>
-        <p><%= @comment.link %></p>
       </div>
       <div class="post_pic">
-        <!--%= image_tag(@post.photo, style:'width:100%') if @post.photo.attached?%-->
+        <%= image_tag(@comment.photo, style:'width:100%') if @comment.photo.attached?%>
       </div>
     </div>
   </div>

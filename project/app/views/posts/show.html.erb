@@ -9,7 +9,6 @@
       <div class="post-txt">
         <h1><%= @post.title %><small><i> Posted on <%= @post.created_at %> by <%=  @post.user.nickname %></i></small></h1>
         <p><%= @post.text %></p>
-        <p><%= @post.link %></p>
       </div>
       <div class="post_pic">
         <%= image_tag(@post.photo, style:'width:100%') if @post.photo.attached?%>

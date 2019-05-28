@@ -10,48 +10,49 @@
       </ul>
     </div>
   <% end %>
-  <div class ="form-group">
-    <div class="input-group">
-      <%= form.file_field :image, direct_upload: true %>
-      </div>
-  </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <div class="container">
+  	<div class="row">
+  	    <div class="col-md-8 col-md-offset-2">
+      		<form action="" method="POST">
+      		    <div class="form-group">
+      		        <label for="title">Title <span class="require">*</span></label>
+      		        <%= form.text_field :title %>
+      		    </div>
 
-  <div class="field">
-    <%= form.label :solve_status %>
-    <%= form.text_field :solve_status %>
-  </div>
+      		    <div class="form-group">
+      		        <label for="description">Description</label>
+                  <textarea  rows="8"<%= form.text_field :text%></textarea>
+      		    </div>
 
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_field :text %>
-  </div>
+              <div class="field">
+                <%= form.label :user_id %>
+                <%= form.text_field :user_id %>
+              </div>
 
-  <div class="field">
-    <%= form.label :wall_id %>
-    <%= form.text_field :wall_id %>
-  </div>
+              <div class="input-group">
+                <%= form.file_field :photo, direct_upload: true %>
+              </div>
 
-  <div class="field">
-    <%= form.label :super_admin_id %>
-    <%= form.text_field :super_admin_id %>
-  </div>
+      		    <div class="form-group">
+                <div class="actions">
+                  <%= form.submit %>
+                </div>
+      		    </div>
+              <div class="field">
+                <%= form.hidden_field :wall_id %>
+              </div>
 
-  <div class="field">
-    <%= form.label :admin_id %>
-    <%= form.text_field :admin_id %>
-  </div>
+              <div class="field">
+                <%= form.hidden_field :super_admin_id %>
+              </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+              <div class="field">
+                <%= form.hidden_field :admin_id %>
+              </div>
+      		</form>
+  		</div>
 
-  <div class="actions">
-    <%= form.submit %>
+  	</div>
   </div>
 <% end %>

@@ -1,24 +1,33 @@
 <div class="row">
   <div class="col-md-2">
     <div class="user_post_pic">
-        <!-- image_tag(@post.image, style:'width:100%') if @post.image.attached?%>-->
+        <%=image_tag(@post.user.image, style:'width:100%') if @post.user.image.attached?%>
     </div>
   </div>
   <div class="col-md-10">
     <div class="w3-container">
       <div class="post-txt">
-        <h1><%= @post.title %><small><i> Posted on <%= @post.created_at %> by <%= @post.user_id %></i></small></h1>
+        <h1><%= @post.title %><small><i> Posted on <%= @post.created_at %> by <%=  @post.user.nickname %></i></small></h1>
         <p><%= @post.text %></p>
         <p><%= @post.link %></p>
       </div>
       <div class="post_pic">
-        <%= image_tag(@post.image, style:'width:100%') if @post.image.attached?%>
+        <%= image_tag(@post.photo, style:'width:100%') if @post.photo.attached?%>
       </div>
       <div class="row post-btns">
         <button type="button" name="Upvote">Upvote</button>
         <button type="button" name="Downvote">Downvote</button>
         <button type="button" name="Share">Share</button>
         <button type="button" name="Follow">Follow</button>
+        <%= link_to "Add Comment", new_comment_path(post_id: @post.id) %>
+      </div>
+      <div class="row comnts">
+        <% @post.comments.each do |c| %>
+          <div class="comnts-container col-md-offset-1">
+            <h4><%= c.user.nickname %></h4><p><%=c.text%></p>
+            <%= link_to "Show Comment", comment_path(c) %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

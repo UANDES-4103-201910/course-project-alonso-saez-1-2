@@ -14,11 +14,7 @@
 			    		<div class="form-group">
 			    			<input class="form-control" placeholder="Password" name="password" type="password" value="">
 			    		</div>
-			    		<div class="checkbox">
-			    	    	<label>
-			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
-			    	    	</label>
-			    	    </div>
+			    		<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
 			    		<button onclick="window.location.href = 'http://localhost:3000/posts'" type="button" name="Log In">Log In</button>
 			    	</fieldset>
 			      	</form>

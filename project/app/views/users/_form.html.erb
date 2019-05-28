@@ -10,13 +10,12 @@
       </ul>
     </div>
   <% end %>
-  <div class ="form-group">
-    <div class="input-group">
-      <%= form.file_field :image, direct_upload: true %>
-      </div>
-  </div>
 
 <div class="field-container col-md-offset-4">
+  <div class="input-group">
+    <%= form.file_field :image, direct_upload: true %>
+  </div>
+
   <div class="field">
     <%= form.label :nickname %>
     <%= form.text_field :nickname %>
@@ -52,8 +51,8 @@
     <%= form.text_field :admin_id %>
   </div>
 
-  <div id="newUser" class="actions">
-    <input class="btn btn-lg btn-block btn-success" type="submit" value="Create User">
+  <div class="actions">
+    <%= form.submit %>
   </div>
 </div>
 <% end %>

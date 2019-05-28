@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Text:</strong>
-  <%= @comment.text %>
-</p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @comment.image %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @comment.link %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @comment.user %>
-</p>
-
-<p>
-  <strong>Post:</strong>
-  <%= @comment.post %>
-</p>
+<div class="row">
+  <div class="col-md-2">
+    <div class="user_post_pic">
+        <%=image_tag(@comment.user.image, style:'width:100%') if @comment.user.image.attached?%>
+    </div>
+  </div>
+  <div class="col-md-10">
+    <div class="w3-container">
+      <h3>
+        <strong>Post:</strong>
+        <%= @comment.post.title %>
+      </h3>
+      <div class="post-txt">
+        <h2><%= @comment.user.nickname %><small><i>  <%= @comment.created_at %> </i></small></h2>
+        <p><%= @comment.text %></p>
+        <p><%= @comment.link %></p>
+      </div>
+      <div class="post_pic">
+        <!--%= image_tag(@post.photo, style:'width:100%') if @post.photo.attached?%-->
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>

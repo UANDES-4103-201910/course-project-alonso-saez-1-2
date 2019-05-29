@@ -22,7 +22,7 @@
     </form>
     <ul class="nav navbar-nav col-md-2">
       <li><a <%= link_to 'Post', posts_path, class: "nav-link #{yield(:post_active)}" %> </a></li>
-      <li><a  <%= link_to 'Profile', href = 'http://localhost:3000/users/1', class: "nav-link #{yield(:profile_active)}" %> </a></li>
+      <li><a  <%= link_to 'Profile', href = "/users/#{current_user.id}", class: "nav-link #{yield(:profile_active)}" %> </a></li>
       <% if user_signed_in? %>
         <a><%= link_to(current_user.email, "/users/#{current_user.id}" ,class: "navbar-brand") %></a>
         <a><%= link_to('Logout', destroy_user_session_path, method: :post, class: "navbar-brand") %></a>

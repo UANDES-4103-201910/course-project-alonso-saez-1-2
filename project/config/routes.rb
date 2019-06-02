@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'registrations/destroy'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
+  post '/logout' => 'sessions#destroy'
   get 'profile' => 'users#index', as: :profile
   root to: 'users#new'
   resources :comments

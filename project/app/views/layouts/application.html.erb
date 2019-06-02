@@ -20,7 +20,7 @@
       </div>
       <button type="submit">Submit</button>
     </form>
-    <ul class="nav navbar-nav col-md-2">
+    <ul class="nav navbar-nav col-md-4">
       <% if user_signed_in? %>
         <a><%= link_to(current_user.email, "/users/#{current_user.id}" ,class: "navbar-brand") %></a>
         <a><%= link_to('Logout', destroy_user_session_path, method: :post, class: "navbar-brand") %></a>

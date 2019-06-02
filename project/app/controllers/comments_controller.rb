@@ -14,7 +14,11 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new(post_id: params[:post_id])
+    if user_signed_in?
+      @comment = Comment.new(post_id: params[:post_id], user_id: current_user.id)
+    else
+      @comment = Comment.new(post_id: params[:post_id], user_id: user_wg.id)
+    end
   end
 
   # GET /comments/1/edit

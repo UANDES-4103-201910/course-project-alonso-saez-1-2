@@ -11,7 +11,7 @@
     <div class="w3-container">
       <h3>
         <strong>Post:</strong>
-        <%= @comment.post.title %>
+        <%= link_to @comment.post.title, post_path(@comment.post) %>
       </h3>
       <div class="post-txt">
         <h2><%= @comment.user.nickname %><small><i>  <%= @comment.created_at %> </i></small></h2>

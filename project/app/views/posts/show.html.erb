@@ -7,7 +7,7 @@
   <div class="col-md-10">
     <div class="w3-container">
       <div class="post-txt">
-        <h1><%= @post.title %><small><i> Posted on <%= @post.created_at %> by <%=  @post.user.nickname %></i></small></h1>
+        <h1><%= @post.title %><small><i> Posted on <%= @post.created_at %> by <%= link_to @post.user.nickname, user_path(@post.user) %></i></small></h1>
         <p><%= @post.text %></p>
       </div>
       <div class="post_pic">
@@ -22,9 +22,14 @@
       </div>
       <div class="row comnts">
         <% @post.comments.each do |c| %>
-          <div class="comnts-container col-md-offset-1">
-            <h4><%= c.user.nickname %></h4><p><%=c.text%></p>
-            <%= link_to "Show Comment", comment_path(c) %>
+          <div class="comnts-container">
+            <div class="col-md-1">
+              <%= image_tag(c.user.image, style:'width:100%') if c.user.image.attached?%>
+            </div>
+            <div class="col-md-9">
+              <h4><%= link_to c.user.nickname,user_path(c.user) %></h4><p><%=c.text%></p>
+              <%= link_to "Show Comment", comment_path(c) %>
+            </div>
           </div>
         <% end %>
       </div>

@@ -14,7 +14,11 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new(wall_id: '1', admin_id: '1', super_admin_id: '1')
+    if user_signed_in?
+      @post = Post.new(wall_id: '1', admin_id: '1', super_admin_id: '1', user_id: current_user.id)
+    else
+      @post = Post.new(wall_id: '1', admin_id: '1', super_admin_id: '1', user_id: user_wg.id)
+    end
   end
 
   # GET /posts/1/edit

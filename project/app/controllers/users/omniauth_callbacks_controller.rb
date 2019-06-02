@@ -8,6 +8,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       session["devise.google_data"] = request.env["omniauth.auth"]
     end
-    redirect_to '/'
+    redirect_to '/posts'
   end
 end

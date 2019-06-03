@@ -14,8 +14,9 @@
         <%= image_tag(@post.photo, style:'width:100%') if @post.photo.attached?%>
       </div>
       <div class="row post-btns">
-        <button type="button" name="Upvote">Upvote</button>
-        <button type="button" name="Downvote">Downvote</button>
+        <%= button_to 'Upvoted', post_upvoteds_path(@post), method: :post %><p><%= @post.upvoteds.count %> <%= (@post.upvoteds.count) == 1 ? 'Upvoted' : 'Upvoteds'%></p>
+        <%= button_to 'Downvoted', post_downvoteds_path(@post), method: :post %><p><%= @post.downvoteds.count %> <%= (@post.downvoteds.count) == 1 ? 'Downvoted' : 'Downvoteds'%></p>
+        <%= button_to 'Inappropiate', post_inappropiates_path(@post), method: :post %><p><%= @post.inappropiates.count %> <%= (@post.inappropiates.count) == 1 ? 'Inappropiate' : 'Inappropiate'%></p>
         <button type="button" name="Share">Share</button>
         <button type="button" name="Follow">Follow</button>
         <%= link_to "Add Comment", new_comment_path(post_id: @post.id) %>

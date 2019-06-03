@@ -1,0 +1,2 @@
+module UpvotedsHelper
+end

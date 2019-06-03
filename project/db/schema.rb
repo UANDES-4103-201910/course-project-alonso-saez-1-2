@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_26_012436) do
+ActiveRecord::Schema.define(version: 2019_06_03_031112) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 2019_05_26_012436) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "downvoteds", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_downvoteds_on_post_id"
+    t.index ["user_id"], name: "index_downvoteds_on_user_id"
+  end
+
   create_table "dumpsters", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,6 +83,24 @@ ActiveRecord::Schema.define(version: 2019_05_26_012436) do
   create_table "dumpsters_posts", id: false, force: :cascade do |t|
     t.integer "post_id", null: false
     t.integer "dumpster_id", null: false
+  end
+
+  create_table "inappropiates", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_inappropiates_on_post_id"
+    t.index ["user_id"], name: "index_inappropiates_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -108,6 +135,24 @@ ActiveRecord::Schema.define(version: 2019_05_26_012436) do
     t.string "gps_location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "unlikes", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_unlikes_on_post_id"
+    t.index ["user_id"], name: "index_unlikes_on_user_id"
+  end
+
+  create_table "upvoteds", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_upvoteds_on_post_id"
+    t.index ["user_id"], name: "index_upvoteds_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

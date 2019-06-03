@@ -3,7 +3,9 @@ class User < ApplicationRecord
   belongs_to :admin, optional: true
   has_many :posts
   has_one_attached :image
-  
+  has_many :upvoteds, dependent: :destroy
+  has_many :downvoteds, dependent: :destroy
+  has_many :inappropiates, dependent: :destroy
   #belongs_to :posts
   #belongs_to :blacklists
   #validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i

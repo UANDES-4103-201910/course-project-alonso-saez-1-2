@@ -22,6 +22,18 @@ Rails.application.routes.draw do
     post 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
 end
 
+  resources :posts do
+    resources :upvoteds
+  end
+
+  resources :posts do
+    resources :downvoteds
+  end
+
+  resources :posts do
+    resources :inappropiates
+  end
+
   #for UsersController
   post '/users/new' => "users#create"
   put '/users/:id' => "users#update"

@@ -3,7 +3,7 @@ class FollowsController < ApplicationController
 
   def create
     if already_upvoted?
-      flash[:notice] = "You can't follow more than once"
+      flash[:error] = "You can't follow more than once"
     else
       if user_signed_in?
         @post.follows.create(user_id: current_user.id)

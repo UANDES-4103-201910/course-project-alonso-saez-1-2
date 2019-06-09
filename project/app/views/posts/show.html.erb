@@ -14,11 +14,13 @@
         <%= image_tag(@post.photo, style:'width:100%') if @post.photo.attached?%>
       </div>
       <div class="row post-btns">
-        <%= button_to 'Upvoted', post_upvoteds_path(@post), method: :post %><p><%= @post.upvoteds.count %> <%= (@post.upvoteds.count) == 1 ? 'Upvoted' : 'Upvoteds'%></p>
-        <%= button_to 'Downvoted', post_downvoteds_path(@post), method: :post %><p><%= @post.downvoteds.count %> <%= (@post.downvoteds.count) == 1 ? 'Downvoted' : 'Downvoteds'%></p>
-        <%= button_to 'Inappropiate', post_inappropiates_path(@post), method: :post %><p><%= @post.inappropiates.count %> <%= (@post.inappropiates.count) == 1 ? 'Inappropiate' : 'Inappropiate'%></p>
-        <%= button_to 'Share', post_shares_path(@post), method: :post %><p><%= @post.shares.count %> <%= (@post.shares.count) == 1 ? 'Share' : 'Shares'%></p>
-        <%= button_to 'Follow', post_follows_path(@post), method: :post %><p><%= @post.follows.count %> <%= (@post.follows.count) == 1 ? 'Follow' : 'Follows'%></p>
+        <%= link_to 'Upvoted', post_upvoteds_path(@post), method: :post %> <%= @post.upvoteds.count %>
+        <%= link_to 'Downvoted', post_downvoteds_path(@post), method: :post %> <%= @post.downvoteds.count %>
+        <%= link_to 'Inappropiate', post_inappropiates_path(@post), method: :post %> <%= @post.inappropiates.count %>
+        <%= link_to 'Share', post_shares_path(@post), method: :post %> <%= @post.shares.count %>
+        <%= link_to 'Follow', post_follows_path(@post), method: :post %> <%= @post.follows.count %>
+      </div>
+      <div class="row post-btns">
         <%= link_to "Add Comment", new_comment_path(post_id: @post.id) %>
       </div>
       <div class="row comnts">

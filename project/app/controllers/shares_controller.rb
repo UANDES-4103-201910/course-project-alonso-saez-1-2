@@ -3,7 +3,7 @@ class SharesController < ApplicationController
 
   def create
     if already_upvoted?
-      flash[:notice] = "You can't share a post more than once"
+      flash[:error] = "You can't share a post more than once"
     else
       if user_signed_in?
         @post.shares.create(user_id: current_user.id)

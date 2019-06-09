@@ -3,7 +3,7 @@ class DownvotedsController < ApplicationController
 
   def create
     if already_downvoted?
-      flash[:notice] = "You can't downvote more than once"
+      flash[:error] = "You can't downvote more than once"
     else
       if user_signed_in?
         @post.downvoteds.create(user_id: current_user.id)

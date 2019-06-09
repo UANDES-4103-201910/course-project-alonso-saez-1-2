@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_09_004508) do
+ActiveRecord::Schema.define(version: 2019_06_09_010242) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(version: 2019_06_09_004508) do
     t.integer "expires_at"
     t.boolean "expires"
     t.string "refresh_token"
+    t.string "role"
     t.index ["admin_id"], name: "index_users_on_admin_id"
     t.index ["super_admin_id"], name: "index_users_on_super_admin_id"
   end

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new(admin_id: '1', super_admin_id: '1')
+    @user = User.new(admin_id: '1', super_admin_id: '1', role: 'user')
   end
 
   # GET /users/1/edit
@@ -70,6 +70,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:profile_image, :nickname, :biography, :email, :password, :country, :city, :status, :gps_location, :super_admin_id, :admin_id, :image)
+      params.require(:user).permit(:profile_image, :nickname, :biography, :email, :password, :country, :city, :status, :gps_location, :super_admin_id, :admin_id, :image, :role)
     end
 end

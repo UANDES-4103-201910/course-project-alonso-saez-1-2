@@ -28,9 +28,15 @@
       </div>
     </div>
     <div class="row profileS">
+      <% if user_wg && user_wg.id == @user.id %>
       <div class="col-md-3">
         <%= link_to 'Edit', edit_user_path(@user) %>
       </div>
+      <% elsif user_signed_in? && current_user.id == @user.id %>
+      <div class="col-md-3">
+        <%= link_to 'Edit', edit_user_path(@user) %>
+      </div>
+      <% end %>
       <div class="col-md-9">
         <% @user.posts.each do |post| %>
             <div class="profile-content">

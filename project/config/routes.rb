@@ -34,6 +34,14 @@ end
     resources :inappropiates
   end
 
+  resources :posts do
+    resources :follows
+  end
+
+  resources :posts do
+    resources :shares
+  end
+
   #for UsersController
   post '/users/new' => "users#create"
   put '/users/:id' => "users#update"

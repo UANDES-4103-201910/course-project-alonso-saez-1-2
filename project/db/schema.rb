@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_031112) do
+ActiveRecord::Schema.define(version: 2019_06_09_004508) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -85,6 +85,15 @@ ActiveRecord::Schema.define(version: 2019_06_03_031112) do
     t.integer "dumpster_id", null: false
   end
 
+  create_table "follows", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_follows_on_post_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
+  end
+
   create_table "inappropiates", force: :cascade do |t|
     t.integer "post_id"
     t.integer "user_id"
@@ -92,15 +101,6 @@ ActiveRecord::Schema.define(version: 2019_06_03_031112) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_inappropiates_on_post_id"
     t.index ["user_id"], name: "index_inappropiates_on_user_id"
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_likes_on_post_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -123,6 +123,15 @@ ActiveRecord::Schema.define(version: 2019_06_03_031112) do
     t.index ["wall_id"], name: "index_posts_on_wall_id"
   end
 
+  create_table "shares", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_shares_on_post_id"
+    t.index ["user_id"], name: "index_shares_on_user_id"
+  end
+
   create_table "super_admins", force: :cascade do |t|
     t.string "profile_image"
     t.string "nickname"
@@ -135,15 +144,6 @@ ActiveRecord::Schema.define(version: 2019_06_03_031112) do
     t.string "gps_location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "unlikes", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_unlikes_on_post_id"
-    t.index ["user_id"], name: "index_unlikes_on_user_id"
   end
 
   create_table "upvoteds", force: :cascade do |t|

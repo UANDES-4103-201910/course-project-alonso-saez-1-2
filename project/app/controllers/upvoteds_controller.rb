@@ -3,7 +3,7 @@ class UpvotedsController < ApplicationController
 
   def create
     if already_upvoted?
-      flash[:notice] = "You can't like more than once"
+      flash[:notice] = "You can't upvoted more than once"
     else
       if user_signed_in?
         @post.upvoteds.create(user_id: current_user.id)

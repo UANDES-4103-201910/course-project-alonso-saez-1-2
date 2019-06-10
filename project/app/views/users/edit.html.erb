@@ -45,6 +45,13 @@
       <%= form.hidden_field :admin_id %>
     </div>
 
+    <% if user_wg && user_wg.role == 'admin'%>
+      <div class="field">
+        <%= form.label :role %>
+        <%= form.text_field :role %>
+      </div>
+    <% end %>
+
     <div class="actions">
       <%= form.submit %>
     </div>
@@ -53,5 +60,4 @@
 <% end %>
 
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Show', @user %>

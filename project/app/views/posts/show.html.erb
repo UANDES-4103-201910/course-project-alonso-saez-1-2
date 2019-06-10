@@ -38,7 +38,7 @@
       </div>
     </div>
   </div>
-  <% if user_wg && user_wg.id == @post.user_id %>
+  <% if user_wg && (user_wg.id == @post.user_id || user_wg.role == 'admin') %>
     <div class="col-md-3">
       <%= link_to 'Edit', edit_post_path(@post) %>
       <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>

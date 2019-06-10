@@ -1,0 +1,2 @@
+class TermsofuseController < ApplicationController
+end

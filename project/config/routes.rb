@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
   get 'profile' => 'users#index', as: :profile
+  get 'termsofuse' => 'termsofuse#TermsOfUse'
+  get 'termsofservice' => 'termsofservice#TermsOfService'
   root to: 'users#new'
   resources :comments
   resources :posts
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
   resources :users
   resources :admins
   resources :super_admins
+  resources :termsofuse
+  resources :termsofservice
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

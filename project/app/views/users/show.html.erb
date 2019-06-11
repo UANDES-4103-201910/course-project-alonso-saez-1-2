@@ -45,6 +45,7 @@
         <% end %>
       </div>
       <div class="col-md-9">
+        <h3>My Posts</h3>
         <% @user.posts.each do |post| %>
             <div class="profile-content">
               <div class="w3-container">
@@ -53,6 +54,54 @@
                 <p><%= link_to 'Read more', post_path(post) %></p>
               </div>
             </div>
+          <% end %>
+          <h3>My Upvoted Posts</h3>
+          <% Upvoted.all.each do |uv| %>
+            <% if @user.id == uv.user_id %>
+              <div class="profile-content">
+                <div class="w3-container">
+                  <h4><%= uv.post.title %><small><i> Posted <%= uv.post.created_at %> by <%= uv.user.nickname %></i></small></h4>
+                  <p><%= uv.post.text %></p>
+                  <p><%= link_to 'Read more', post_path(uv.post) %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+          <h3>My Downvoted Posts</h3>
+          <% Downvoted.all.each do |dv| %>
+            <% if @user.id == dv.user_id %>
+              <div class="profile-content">
+                <div class="w3-container">
+                  <h4><%= dv.post.title %><small><i> Posted <%= dv.post.created_at %> by <%= dv.user.nickname %></i></small></h4>
+                  <p><%= dv.post.text %></p>
+                  <p><%= link_to 'Read more', post_path(dv.post) %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+          <h3>My Shared Posts</h3>
+          <% Share.all.each do |s| %>
+            <% if @user.id == s.user_id %>
+              <div class="profile-content">
+                <div class="w3-container">
+                  <h4><%= s.post.title %><small><i> Posted <%= s.post.created_at %> by <%= s.user.nickname %></i></small></h4>
+                  <p><%= s.post.text %></p>
+                  <p><%= link_to 'Read more', post_path(s.post) %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+          <h3>My Followed Posts</h3>
+          <% Follow.all.each do |f| %>
+            <% if @user.id == f.user_id %>
+              <div class="profile-content">
+                <div class="w3-container">
+                  <h4><%= f.post.title %><small><i> Posted <%= f.post.created_at %> by <%= f.user.nickname %></i></small></h4>
+                  <p><%= f.post.text %></p>
+                  <p><%= link_to 'Read more', post_path(f.post) %></p>
+                </div>
+              </div>
+            <% end %>
           <% end %>
       </div>
     </div>

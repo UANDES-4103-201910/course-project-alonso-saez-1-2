@@ -102,19 +102,18 @@
               </div>
             <% end %>
           <% end %>
-          <h3>My Dumpster Posts</h3>
-          <% Dumpster.all.each do |du| %>
-            <% if @user.id == du.user_id %>
-              <div class="profile-content">
-                <div class="w3-container">
-                  <h4><%= du.post.title %><small><i> Posted <%= du.post.created_at %> by <%= du.user.nickname %></i></small></h4>
-                  <p><%= du.post.text %></p>
-                  <p><%= link_to 'Read more', post_path(du.post) %></p>
+          <% if user_wg && user_wg.id == @user.id && user_wg.role == 'admin' %>
+            <h3>My Dumpster Posts</h3>
+            <% Dumpster.all.each do |du| %>
+                <div class="profile-content">
+                  <div class="w3-container">
+                    <h4><%= du.post.title %><small><i> Posted <%= du.post.created_at %> by <%= du.user.nickname %></i></small></h4>
+                    <p><%= du.post.text %></p>
+                    <p><%= link_to 'Read more', post_path(du.post) %></p>
+                  </div>
                 </div>
-              </div>
             <% end %>
           <% end %>
-
       </div>
     </div>
   </div>

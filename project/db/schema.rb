@@ -84,15 +84,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_024808) do
     t.integer "dumpster_id", null: false
   end
 
-  create_table "dumspters", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_dumspters_on_post_id"
-    t.index ["user_id"], name: "index_dumspters_on_user_id"
-  end
-
   create_table "follows", force: :cascade do |t|
     t.integer "post_id"
     t.integer "user_id"

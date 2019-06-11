@@ -30,7 +30,7 @@
       <% if user_signed_in? %>
         <a><%= link_to(current_user.email, "/users/#{current_user.id}" ,class: "navbar-brand") %></a>
         <a><%= link_to('Logout', destroy_user_session_path, method: :post, class: "navbar-brand") %></a>
-        <li><a <%= link_to 'Post', posts_path, class: "nav-link #{yield(:post_active)}" %> </a></li>
+        <li><a <%= link_to 'Posts', posts_path, class: "nav-link #{yield(:post_active)}" %> </a></li>
       <% end %>
       <% if user_wg %>
         <a><%= link_to(user_wg.email, "/users/#{user_wg.id}" ,class: "navbar-brand") %></a>

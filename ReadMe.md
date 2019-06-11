@@ -1,16 +1,6 @@
-Implemented features:
--Google authentication
--login and sign in
--upvoted, downvoted, inappropriate
--comments on posts
--profile
--profile image
--post image
--comment image
+In this assignment, we manage to introduce some admin features, like "Add post to the Dumpster".
+Also, we manage to improve the user profile.
+The AUP and ToS are also implemented.
 
-Pending features:
--add users to the blacklist
--admins functionalities
--superadmin functionalities
--add geolocalization to users and posts
--search bar
+Joaquin Alonso
+Antonia Saez

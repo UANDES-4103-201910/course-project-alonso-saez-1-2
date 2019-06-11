@@ -10,9 +10,7 @@ Rails.application.routes.draw do
   root to: 'users#new'
   resources :comments
   resources :posts
-  resources :dumpsters
   resources :walls
-  resources :blacklists
   resources :users
   resources :admins
   resources :super_admins
@@ -46,6 +44,9 @@ end
     resources :shares
   end
 
+  resources :posts do
+    resources :dumpsters
+  end
   #for UsersController
   post '/users/new' => "users#create"
   put '/users/:id' => "users#update"

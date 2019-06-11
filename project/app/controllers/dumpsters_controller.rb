@@ -1,74 +1,32 @@
 class DumpstersController < ApplicationController
-  before_action :set_dumpster, only: [:show, :edit, :update, :destroy]
+  before_action :find_post
 
-  # GET /dumpsters
-  # GET /dumpsters.json
-  def index
-    @dumpsters = Dumpster.all
-  end
-
-  # GET /dumpsters/1
-  # GET /dumpsters/1.json
-  def show
-  end
-
-  # GET /dumpsters/new
-  def new
-    @dumpster = Dumpster.new
-  end
-
-  # GET /dumpsters/1/edit
-  def edit
-  end
-
-  # POST /dumpsters
-  # POST /dumpsters.json
   def create
-    @dumpster = Dumpster.new(dumpster_params)
-
-    respond_to do |format|
-      if @dumpster.save
-        format.html { redirect_to @dumpster, notice: 'Dumpster was successfully created.' }
-        format.json { render :show, status: :created, location: @dumpster }
+    if already_downvoted?
+      flash[:error] = "You can't send a post to the dumpster more than once"
+    else
+      if user_signed_in?
+        @post.dumpsters.create(user_id: current_user.id)
       else
-        format.html { render :new }
-        format.json { render json: @dumpster.errors, status: :unprocessable_entity }
+        @post.dumpsters.create(user_id: user_wg.id)
       end
     end
+    redirect_to post_path(@post)
   end
 
-  # PATCH/PUT /dumpsters/1
-  # PATCH/PUT /dumpsters/1.json
-  def update
-    respond_to do |format|
-      if @dumpster.update(dumpster_params)
-        format.html { redirect_to @dumpster, notice: 'Dumpster was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dumpster }
-      else
-        format.html { render :edit }
-        format.json { render json: @dumpster.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /dumpsters/1
-  # DELETE /dumpsters/1.json
-  def destroy
-    @dumpster.destroy
-    respond_to do |format|
-      format.html { redirect_to dumpsters_url, notice: 'Dumpster was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dumpster
-      @dumpster = Dumpster.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def dumpster_params
-      params.fetch(:dumpster, {})
+  def already_downvoted?
+    if user_signed_in?
+      Dumpster.where(user_id: current_user.id, post_id: params[:post_id]).exists?
+    else
+      Dumpster.where(user_id: user_wg.id, post_id: params[:post_id]).exists?
     end
+ end
+
+  def find_post
+    @post = Post.find(params[:post_id])
+  end
+
 end

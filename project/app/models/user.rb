@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :inappropiates, dependent: :destroy
   has_many :follows, dependent: :destroy
   has_many :shares, dependent: :destroy
+  has_many :dumpsters, dependent: :destroy
   #belongs_to :posts
   #belongs_to :blacklists
   #validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i

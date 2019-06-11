@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_09_010242) do
+ActiveRecord::Schema.define(version: 2019_06_11_024808) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -49,11 +49,6 @@ ActiveRecord::Schema.define(version: 2019_06_09_010242) do
     t.index ["super_admin_id"], name: "index_admins_on_super_admin_id"
   end
 
-  create_table "blacklists", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comments", force: :cascade do |t|
     t.string "text"
     t.string "image"
@@ -76,13 +71,26 @@ ActiveRecord::Schema.define(version: 2019_06_09_010242) do
   end
 
   create_table "dumpsters", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_dumpsters_on_post_id"
+    t.index ["user_id"], name: "index_dumpsters_on_user_id"
   end
 
   create_table "dumpsters_posts", id: false, force: :cascade do |t|
     t.integer "post_id", null: false
     t.integer "dumpster_id", null: false
+  end
+
+  create_table "dumspters", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_dumspters_on_post_id"
+    t.index ["user_id"], name: "index_dumspters_on_user_id"
   end
 
   create_table "follows", force: :cascade do |t|

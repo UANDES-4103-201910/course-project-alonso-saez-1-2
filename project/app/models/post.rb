@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   has_many :inappropiates, dependent: :destroy
   has_many :follows, dependent: :destroy
   has_many :shares, dependent: :destroy
+  has_many :dumpsters, dependent: :destroy
   #belongs_to :users
   #belongs_to :dumpsters
   validates :text, length: {minimum: 1, :message => 'Your text has less than 1 characters'}

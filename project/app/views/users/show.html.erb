@@ -38,7 +38,6 @@
         <% end %>
         <% if user_wg && user_wg.id == @user.id && user_wg.role == 'admin' %>
           <%= link_to 'All Users', users_path %>
-          <%= link_to 'See Blacklist', users_path %>
         <% elsif user_wg && user_wg.id != @user.id && user_wg.role == 'admin' %>
           <%= link_to 'Add to Blacklist', users_path %>
         <% end %>

@@ -38,15 +38,16 @@
       </div>
     </div>
   </div>
-  <% if user_wg && (user_wg.id == @post.user_id || user_wg.role == 'admin') %>
-    <div class="col-md-3">
+  <div class="col-md-3">
+    <% if user_wg && user_wg.id != @post.user_id && user_wg.role == 'admin' %>
+      <%= link_to 'Add to Dumpster', dumpsters_path %>
+    <% end %>
+    <% if user_wg && (user_wg.id == @post.user_id || user_wg.role == 'admin') %>
       <%= link_to 'Edit', edit_post_path(@post) %>
       <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
-  <% elsif user_signed_in? && current_user.id == @post.user_id %>
-    <div class="col-md-3">
+    <% elsif user_signed_in? && current_user.id == @post.user_id %>
       <%= link_to 'Edit', edit_post_path(@post) %>
       <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

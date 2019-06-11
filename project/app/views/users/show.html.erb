@@ -28,15 +28,20 @@
       </div>
     </div>
     <div class="row profileS">
-      <% if user_wg && (user_wg.id == @user.id || user_wg.role == 'admin') %>
       <div class="col-md-3">
-        <%= link_to 'Edit', edit_user_path(@user) %>
+        <% if user_wg && (user_wg.id == @user.id || user_wg.role == 'admin') %>
+          <%= link_to 'Edit', edit_user_path(@user) %>
+        <% elsif user_signed_in? && current_user.id == @user.id %>
+          <%= link_to 'Edit', edit_user_path(@user) %>
+        <% end %>
+        <% if user_wg && user_wg.id == @user.id && user_wg.role == 'admin' %>
+          <%= link_to 'All Users', users_path %>
+          <%= link_to 'See Blacklist', blacklists_path %>
+          <%= link_to 'See Dumpster', dumpsters_path %>
+        <% elsif user_wg && user_wg.id != @user.id && user_wg.role == 'admin' %>
+          <%= link_to 'Add to Blacklist', blacklists_path %>
+        <% end %>
       </div>
-      <% elsif user_signed_in? && current_user.id == @user.id %>
-      <div class="col-md-3">
-        <%= link_to 'Edit', edit_user_path(@user) %>
-      </div>
-      <% end %>
       <div class="col-md-9">
         <% @user.posts.each do |post| %>
             <div class="profile-content">
@@ -44,12 +49,6 @@
                 <h4><%= post.title %><small><i> Posted <%= post.created_at %> by <%= @user.nickname %></i></small></h4>
                 <p><%= post.text %></p>
                 <p><%= link_to 'Read more', post_path(post) %></p>
-                <div class="row btns-post">
-                  <button type="button" name="Upvote">Upvote</button>
-                  <button type="button" name="Downvote">Downvote</button>
-                  <button type="button" name="Share">Share</button>
-                  <button type="button" name="Follow">Follow</button>
-                </div>
               </div>
             </div>
           <% end %>

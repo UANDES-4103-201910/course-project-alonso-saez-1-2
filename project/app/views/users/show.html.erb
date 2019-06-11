@@ -31,8 +31,10 @@
       <div class="col-md-3">
         <% if user_wg && (user_wg.id == @user.id || user_wg.role == 'admin') %>
           <%= link_to 'Edit', edit_user_path(@user) %>
+          <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% elsif user_signed_in? && current_user.id == @user.id %>
           <%= link_to 'Edit', edit_user_path(@user) %>
+          <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
         <% if user_wg && user_wg.id == @user.id && user_wg.role == 'admin' %>
           <%= link_to 'All Users', users_path %>

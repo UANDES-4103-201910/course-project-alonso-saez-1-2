@@ -29,9 +29,11 @@
             <div class="col-md-1">
               <%= image_tag(c.user.image, style:'width:100%') if c.user.image.attached?%>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-11">
               <h4><%= link_to c.user.nickname,user_path(c.user) %></h4><p><%=c.text%></p>
+              <p class="comnt-photo"><%= image_tag(c.photo, style:'width:100%') if c.photo.attached?%></p>
               <%= link_to "Show Comment", comment_path(c) %>
+              <hr style="width 100%">
             </div>
           </div>
         <% end %>

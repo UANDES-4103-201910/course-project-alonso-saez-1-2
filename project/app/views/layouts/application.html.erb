@@ -11,26 +11,27 @@
 
 <nav class="navbar navbar-inverse">
   <div class="row container-fluid">
-    <div class="navbar-header col-md-2">
+    <div class="navbar-header">
       <% if user_signed_in? || user_wg %>
         <a class="navbar-brand" <%= link_to 'Tell me more...', posts_path, class: "nav-link #{yield(:post_active)}" %></a>
       <% else %>
         <a class="navbar-brand" <%= link_to 'Tell me more...', root_path, class: "nav-link #{yield(:post_active)}" %></a>
       <% end %>
     </div>
-    <form class="form-inline mt-2 col-md-4" >
-      <% if user_signed_in? || user_wg %>
+    <% if user_signed_in? || user_wg %>
+      <div class="form-inline col-md-3" >
         <%= form_tag posts_path, :method => 'get' do %>
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search Post" %>
         <% end %>
+      </div>
+      <div class="form-inline col-md-3">
         <%= form_tag users_path, :method => 'get' do %>
           <%= text_field_tag :search2, params[:search2] %>
           <%= submit_tag "Search User" %>
         <% end %>
-
-      <% end %>
-    </form>
+      </div>
+    <% end %>
     <ul class="nav navbar-nav col-md-4">
       <% if user_signed_in? %>
         <a><%= link_to(current_user.email, "/users/#{current_user.id}" ,class: "navbar-brand") %></a>

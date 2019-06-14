@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.where(["nickname LIKE ?","%#{params[:search2]}%"])
   end
 
   # GET /users/1
